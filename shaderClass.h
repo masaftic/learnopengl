@@ -8,6 +8,8 @@
 #include<cerrno>
 
 std::string get_file_contents(const char* filename);
+void CompileShader(GLuint vertexShader);
+void LinkProgram(GLuint program);
 
 class Shader
 {

@@ -7,54 +7,6 @@
 #include "EBO.h"
 
 
-class OpenGLWindow {
-private:
-    GLFWwindow* window;
-
-public:
-    OpenGLWindow(int width, int height, const char* title) {
-        // Initialize GLFW
-        glfwInit();
-
-        // Set GLFW window hints
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-        glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-
-        // Create GLFW window
-        window = glfwCreateWindow(width, height, title, nullptr, nullptr);
-        if (!window) {
-            glfwTerminate();
-            throw std::runtime_error("Failed to create GLFW window");
-        }
-
-        // Make the context of the window the current one
-        glfwMakeContextCurrent(window);
-
-        // Load OpenGL function pointers
-        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-            throw std::runtime_error("Failed to initialize GLAD");
-        }
-
-        // Set viewport
-        glViewport(0, 0, width, height);
-    }
-
-    void run() {
-        // Main loop
-        while (!glfwWindowShouldClose(window)) {
-            glfwPollEvents(); // Process events
-        }
-    }
-
-    ~OpenGLWindow() {
-        // Destroy window
-        glfwDestroyWindow(window);
-        // Terminate GLFW
-        glfwTerminate();
-    }
-};
-
 
 // Vertices coordinates
 GLfloat vertices[] =
