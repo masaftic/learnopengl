@@ -71,12 +71,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\youse\source\repos\learnopengl\learnopenglcourse\libraries\include;C:\Users\youse\source\repos\learnopengl\learnopenglcourse\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\youse\source\repos\learnopengl\learnopenglcourse\libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(LocalDebuggerWorkingDirectory)\libraries\include;$(LocalDebuggerWorkingDirectory)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LocalDebuggerWorkingDirectory)\libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\youse\source\repos\learnopengl\learnopenglcourse\libraries\include;C:\Users\youse\source\repos\learnopengl\learnopenglcourse\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\youse\source\repos\learnopengl\learnopenglcourse\libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(LocalDebuggerWorkingDirectory)\libraries\include;$(LocalDebuggerWorkingDirectory)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(LocalDebuggerWorkingDirectory)\libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -141,6 +141,7 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shaderClass.cpp" />
+    <ClCompile Include="stb.cpp" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="VBO.cpp" />
   </ItemGroup>
