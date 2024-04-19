@@ -75,5 +75,8 @@
     <Image Include="minato.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="chad.png">
+      <Filter>Resource Files\textures</Filter>
+    </Image>
   </ItemGroup>
 </Project>

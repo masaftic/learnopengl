@@ -3,17 +3,17 @@
 out vec4 FragColor;
 
 // inputs the color from the vertex shader
-in vec3 color;
+in vec3 ourColor;
 // Inputs the texture coordinates from the Vertex Shader
 in vec2 texCoord;
 
 // Gets the Texture Unit from the main function
 uniform sampler2D tex0;
-uniform float ourColor;
+uniform sampler2D tex1;
 
 
 void main()
 {
-		FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);
-
+	// FragColor = texture(tex0, texCoord) * vec4(ourColor, 1.0);
+	FragColor = mix(texture(tex0, texCoord), texture(tex1, texCoord), 0.65);
 }

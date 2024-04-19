@@ -62,7 +62,7 @@ int main()
     glViewport(0, 0, 800, 800);
 
 
-    Shader shaderProgram("default.vert", "default.frag");
+    Shader shaderProgram("default_Vert.c", "default_Frag.c");
     VAO VAO1;
     VAO1.Bind();
 
@@ -78,8 +78,12 @@ int main()
 
     Texture texture("minato.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
-    // texture.texUniform(shaderProgram, "tex0", 0);
-    shaderProgram.setInt("tex0", 0);
+    texture.texUniform(shaderProgram, "tex0", 0); 
+
+    Texture texture2("chad.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
+
+    texture2.texUniform(shaderProgram, "tex1", 1);
+
 
     // Main while loop
     while (!glfwWindowShouldClose(window))
@@ -94,8 +98,12 @@ int main()
         // glUniform1f(uniformID, 0.5f); 
         shaderProgram.setFloat("scale", 0.5f);
         shaderProgram.setFloat("xOffset", 0.5);
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue) / 2.0f) + 0.5f;
+        shaderProgram.setFloat("ourColor", greenValue);
 
-        texture.Bind();
+        texture2.Activate();
+        texture.Activate();
         // Bind the VAO so OpenGL knows to use it
         VAO1.Bind();
         // Draw primitives, number of indices, datatype of indices, index of indices
@@ -110,7 +118,7 @@ int main()
     VAO1.Delete();
     VBO1.Delete();
     EBO1.Delete();
-    texture.Delete();
+    // texture.Delete();
     shaderProgram.Delete();
     // Delete window before ending the program
     glfwDestroyWindow(window);

@@ -4,6 +4,7 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
 {
 	// Assigns the type of the texture ot the texture object
 	type = texType;
+	this->slot = slot;
 
 	// Stores the width, height, and the number of color channels of the image
 	int widthImg, heightImg, numColCh;
@@ -18,10 +19,13 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
 	glActiveTexture(slot);
 	glBindTexture(texType, ID);
 
+
+	// Texture Filtering
 	// Configures the type of algorithm that is used to make the image smaller or bigger
 	glTexParameteri(texType, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
 	glTexParameteri(texType, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 
+	// Texture Wrapping
 	// Configures the way the texture repeats (if it does at all)
 	glTexParameteri(texType, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(texType, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -50,6 +54,12 @@ void Texture::texUniform(Shader& shader, const char* uniform, GLuint unit)
 	shader.Activate();
 	// Sets the value of the uniform
 	glUniform1i(texUni, unit);
+}
+
+void Texture::Activate()
+{
+	glActiveTexture(slot);
+	glBindTexture(type, ID);
 }
 
 void Texture::Bind()
