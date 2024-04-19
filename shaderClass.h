@@ -21,6 +21,12 @@ public:
 	void Activate();
 	// Deletes the Shader Program
 	void Delete();
+
+	// setting uniform in the shader
+	void setBool(const std::string& name, bool value) const;	
+	void setInt(const std::string& name, int value) const;
+	void setFloat(const std::string& name, float value) const;
+
 private:
 	// Checks if the different Shaders have compiled properly
 	void checkCompileErrors(unsigned int shader, const char* type);
