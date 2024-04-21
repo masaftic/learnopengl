@@ -108,7 +108,7 @@ int main()
     glViewport(0, 0, width, height);
 
 
-    Shader shaderProgram("default_Vert.c", "default_Frag.c");
+    Shader shaderProgram("resources/shaders/default_Vert.c", "resources/shaders/default_Frag.c");
     
 
     VAO VAO1;
@@ -124,11 +124,11 @@ int main()
     VBO1.Unbind();
     // EBO1.Unbind();
 
-    Texture texture("minato.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
+    Texture texture("resources/textures/minato.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
     texture.texUniform(shaderProgram, "tex0", 0); 
 
-    Texture texture2("chad.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
+    Texture texture2("resources/textures/chad.png", GL_TEXTURE_2D, GL_TEXTURE1, GL_RGBA, GL_UNSIGNED_BYTE);
 
     texture2.texUniform(shaderProgram, "tex1", 1);
 

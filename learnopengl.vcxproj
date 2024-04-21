@@ -137,31 +137,31 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="camera.cpp" />
-    <ClCompile Include="EBO.cpp" />
-    <ClCompile Include="glad.c" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="shaderClass.cpp" />
-    <ClCompile Include="stb.cpp" />
-    <ClCompile Include="texture.cpp" />
-    <ClCompile Include="VAO.cpp" />
-    <ClCompile Include="VBO.cpp" />
+    <ClCompile Include="src\camera.cpp" />
+    <ClCompile Include="src\EBO.cpp" />
+    <ClCompile Include="src\libs\glad.c" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\shaderClass.cpp" />
+    <ClCompile Include="src\libs\stb.cpp" />
+    <ClCompile Include="src\texture.cpp" />
+    <ClCompile Include="src\VAO.cpp" />
+    <ClCompile Include="src\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="default.frag" />
-    <None Include="default.vert" />
+    <None Include="resources\shaders\default.frag" />
+    <None Include="resources\shaders\default.vert" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="camera.h" />
-    <ClInclude Include="EBO.h" />
-    <ClInclude Include="shaderClass.h" />
-    <ClInclude Include="texture.h" />
-    <ClInclude Include="VAO.h" />
-    <ClInclude Include="VBO.h" />
+    <ClInclude Include="include\camera.h" />
+    <ClInclude Include="include\EBO.h" />
+    <ClInclude Include="include\shaderClass.h" />
+    <ClInclude Include="include\texture.h" />
+    <ClInclude Include="include\VAO.h" />
+    <ClInclude Include="include\VBO.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="chad.png" />
-    <Image Include="minato.png" />
+    <Image Include="resources\textures\chad.png" />
+    <Image Include="resources\textures\minato.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
