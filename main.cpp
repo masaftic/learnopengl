@@ -11,31 +11,70 @@
 #include "VBO.h"
 #include "EBO.h"
 #include "texture.h"
+#include "camera.h"
 
-using namespace glm;
 
 const int width = 800, height = 800;
 
 // Vertices coordinates
-GLfloat vertices[] =
-{ //     COORDINATES     /        COLORS      /   TexCoord  //
-    -0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
-    -0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
-     0.5f, 0.0f, -0.5f,     0.83f, 0.70f, 0.44f,	0.0f, 0.0f,
-     0.5f, 0.0f,  0.5f,     0.83f, 0.70f, 0.44f,	5.0f, 0.0f,
-     0.0f, 0.8f,  0.0f,     0.92f, 0.86f, 0.76f,	2.5f, 5.0f
+float vertices[] = {
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+         0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+         0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
 };
 
-// Indices for vertices order
-GLuint indices[] =
-{
-    0, 1, 2,
-    0, 2, 3,
-    0, 1, 4,
-    1, 2, 4,
-    2, 3, 4,
-    3, 0, 4
+
+glm::vec3 pyramidPositions[] = {
+    glm::vec3(0.0f,  0.0f,  0.0f),
+    glm::vec3(2.0f,  5.0f, -15.0f),
+    glm::vec3(-1.5f, -2.2f, -2.5f),
+    glm::vec3(-3.8f, -2.0f, -12.3f),
+    glm::vec3(2.4f, -0.4f, -3.5f),
+    glm::vec3(-1.7f,  3.0f, -7.5f),
+    glm::vec3(1.3f, -2.0f, -2.5f),
+    glm::vec3(1.5f,  2.0f, -2.5f),
+    glm::vec3(1.5f,  0.2f, -1.5f),
+    glm::vec3(-1.3f,  1.0f, -1.5f)
 };
+
 
 int main()
 {
@@ -70,18 +109,20 @@ int main()
 
 
     Shader shaderProgram("default_Vert.c", "default_Frag.c");
+    
+
     VAO VAO1;
     VAO1.Bind();
 
     VBO VBO1(vertices, sizeof(vertices));
-    EBO EBO1(indices , sizeof(indices ));
+    // EBO EBO1(indices , sizeof(indices ));
 
-    VAO1.LinkAtrrib(VBO1, 0, 3, GL_FLOAT, 8 * sizeof(float), (void*)0);
-    VAO1.LinkAtrrib(VBO1, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3*sizeof(float)));
-    VAO1.LinkAtrrib(VBO1, 2, 2, GL_FLOAT, 8 * sizeof(float), (void*)(6*sizeof(float)));
+    VAO1.LinkAtrrib(VBO1, 0, 3, GL_FLOAT, 5 * sizeof(float), (void*)0);
+    // VAO1.LinkAtrrib(VBO1, 1, 3, GL_FLOAT, 8 * sizeof(float), (void*)(3*sizeof(float)));
+    VAO1.LinkAtrrib(VBO1, 1, 2, GL_FLOAT, 5 * sizeof(float), (void*)(3*sizeof(float)));
     VAO1.Unbind();
     VBO1.Unbind();
-    EBO1.Unbind();
+    // EBO1.Unbind();
 
     Texture texture("minato.png", GL_TEXTURE_2D, GL_TEXTURE0, GL_RGBA, GL_UNSIGNED_BYTE);
 
@@ -91,9 +132,10 @@ int main()
 
     texture2.texUniform(shaderProgram, "tex1", 1);
 
-    float rotation = 0.0f;
-    double prevTime = glfwGetTime();
-
+    
+    Camera camera(width, height, glm::vec3(0.0f, 0.0f, 2.0f));
+    
+    
     glEnable(GL_DEPTH_TEST);
 
     // Main while loop
@@ -105,35 +147,31 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         // Tell OpenGL which Shader Program we want to use
         shaderProgram.Activate();
-        // Assigns a value to the uniform; NOTE: Must always be done after activating the Shader Program
-        // glUniform1f(uniformID, 0.5f); 
 
-        double currentTime = glfwGetTime();
-        double delta = currentTime - prevTime;
-        if (delta > (double)1 / 60)
-        {
-            rotation += 0.5f;
-            prevTime = currentTime;
-        }
-
-        mat4 model = mat4(1.0f);
-        mat4 view  = mat4(1.0f);
-        mat4 proj  = mat4(1.0f);
-
-        model = rotate(model, radians(rotation), vec3(0.0f, 1.0f, 0.0f));
-        view = translate(view, vec3(0.0f, -0.5f, -2.0f));
-        proj = perspective(radians(45.0f), (float)(width / height), 0.1f, 100.0f);
-
-        shaderProgram.setMat4fv("model", value_ptr(model));
-        shaderProgram.setMat4fv("view" , value_ptr(view));
-        shaderProgram.setMat4fv("proj" , value_ptr(proj));
+        camera.Inputs(window);
+        camera.Matrix(45.0f, 0.1f, 100.0f, shaderProgram, "camMatrix");
 
         // texture2.Activate();
         texture.Activate();
         // Bind the VAO so OpenGL knows to use it
         VAO1.Bind();
+
+        for (size_t i = 0; i < 10; i++) {
+            glm::mat4 model = glm::mat4(1.0f);
+            model = glm::translate(model, pyramidPositions[i]);
+            float angle = 20.0f * i;
+            model = glm::rotate(model, angle, glm::vec3(1.0f, 0.3f, 0.5f));
+            shaderProgram.setMat4("model", model);
+
+
+            // to draw with indecies
+            // glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, 0);
+
+            // to draw with just vertices
+            glDrawArrays(GL_TRIANGLES, 0, 36);
+        }
+
         // Draw primitives, number of indices, datatype of indices, index of indices
-        glDrawElements(GL_TRIANGLES, sizeof(indices) / sizeof(int), GL_UNSIGNED_INT, 0);
         // Swap the back buffer with the front buffer
         glfwSwapBuffers(window);
         // Take care of all GLFW events
@@ -143,7 +181,7 @@ int main()
 
     VAO1.Delete();
     VBO1.Delete();
-    EBO1.Delete();
+    // EBO1.Delete();
     // texture.Delete();
     shaderProgram.Delete();
     // Delete window before ending the program

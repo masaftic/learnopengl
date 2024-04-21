@@ -20,6 +20,8 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
 	glBindTexture(texType, ID);
 
 
+
+
 	// Texture Filtering
 	// Configures the type of algorithm that is used to make the image smaller or bigger
 	glTexParameteri(texType, GL_TEXTURE_MIN_FILTER, GL_NEAREST_MIPMAP_LINEAR);
@@ -29,6 +31,10 @@ Texture::Texture(const char* image, GLenum texType, GLenum slot, GLenum format, 
 	// Configures the way the texture repeats (if it does at all)
 	glTexParameteri(texType, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(texType, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+
+
+
 
 	// Extra lines in case you choose to use GL_CLAMP_TO_BORDER
 	// float flatColor[] = {1.0f, 1.0f, 1.0f, 1.0f};
