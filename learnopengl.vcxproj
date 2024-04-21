@@ -137,6 +137,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\EBO.cpp" />
     <ClCompile Include="src\libs\glad.c" />
@@ -154,10 +155,14 @@
   <ItemGroup>
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\EBO.h" />
+    <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\glmlibs.h" />
+    <ClInclude Include="include\mesh.h" />
     <ClInclude Include="include\shaderClass.h" />
     <ClInclude Include="include\texture.h" />
     <ClInclude Include="include\VAO.h" />
     <ClInclude Include="include\VBO.h" />
+    <ClInclude Include="include\vertex.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\chad.png" />
