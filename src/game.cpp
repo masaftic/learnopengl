@@ -20,7 +20,7 @@ Game::~Game()
 void Game::Init()
 {
 	// load shaders
-	ResourceManager::LoadShader("resources/shaders/default_Vert.c", "resources/shaders/default_Frag.c", "sprite");
+	ResourceManager::LoadShader("resources/shaders/default.vert", "resources/shaders/default.frag", "sprite");
 	// config shaders
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(this->Width), static_cast<float>(this->Height), 0.0f, -1.0f, 1.0f);
 	// load texture in slot 0
@@ -49,6 +49,6 @@ void Game::Update(float dt)
 void Game::Render()
 {
 	Texture texture = ResourceManager::GetTexture("minato");
-	Renderer->DrawSprite(texture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 0.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+	Renderer->DrawSprite(texture, glm::vec2(200.0f, 200.0f), glm::vec2(300.0f, 400.0f), 45.0f, glm::vec3(0.0f, 1.0f, 0.0f));
 
 }

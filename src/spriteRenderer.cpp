@@ -47,7 +47,7 @@ void SpriteRenderer::initRenderData()
 {
     float vertices[] = {
         // pos      // tex
-        0.0f, 1.0f, 1.0f, 1.0f,
+        0.0f, 1.0f, 0.0f, 1.0f,
         1.0f, 0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 0.0f, 0.0f,
 
