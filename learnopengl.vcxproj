@@ -137,6 +137,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\resourceManager.cpp" />
+    <ClCompile Include="src\spriteRenderer.cpp" />
     <ClCompile Include="src\game.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\EBO.cpp" />
@@ -158,7 +160,9 @@
     <ClInclude Include="include\game.h" />
     <ClInclude Include="include\glmlibs.h" />
     <ClInclude Include="include\mesh.h" />
+    <ClInclude Include="include\resourceManager.h" />
     <ClInclude Include="include\shaderClass.h" />
+    <ClInclude Include="include\spriteRenderer.h" />
     <ClInclude Include="include\texture.h" />
     <ClInclude Include="include\VAO.h" />
     <ClInclude Include="include\VBO.h" />

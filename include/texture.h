@@ -9,12 +9,23 @@ class Texture
 {
 public:
 	GLuint ID;
-	GLenum type;
-	GLenum slot;
-	Texture(const char* image, GLenum texType, GLenum slot, GLenum format, GLenum pixelType);
+	unsigned int Width, Height;
+
+	// texture format
+	unsigned int Internal_Format;
+	unsigned int Image_Format;
+
+	// texture config
+	unsigned int Wrap_S;
+	unsigned int Wrap_T;
+	unsigned int Filter_Min;
+	unsigned int Filter_Max;
+
+	Texture();
+
+	void Generate(unsigned int width, unsigned int height, unsigned char* data);
 
 	void texUniform(Shader& shader, const char* uniform, GLuint unit);
-	void Activate();
 	void Bind();
 	void Unbind();
 	void Delete();
