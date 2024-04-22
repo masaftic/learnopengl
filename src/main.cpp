@@ -1,17 +1,7 @@
 #include<iostream>
 #include<glad/glad.h>
 #include<GLFW/glfw3.h>
-#include<stb/stb_image.h>
-#include<glm/glm.hpp>
-#include<glm/gtc/matrix_transform.hpp> // glm::vec4
-#include<glm/gtc/type_ptr.hpp> // glm::mat4
 
-#include "shaderClass.h"
-#include "VAO.h"
-#include "VBO.h"
-#include "EBO.h"
-#include "texture.h"
-#include "camera.h"
 #include "game.h"
 #include <resourceManager.h>
 

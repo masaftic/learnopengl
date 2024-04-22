@@ -137,26 +137,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\gameLevel.cpp" />
-    <ClCompile Include="src\gameObject.cpp" />
-    <ClCompile Include="src\resourceManager.cpp" />
-    <ClCompile Include="src\spriteRenderer.cpp" />
-    <ClCompile Include="src\game.cpp" />
-    <ClCompile Include="src\camera.cpp" />
-    <ClCompile Include="src\EBO.cpp" />
+    <ClCompile Include="src\core\ballObject.cpp" />
+    <ClCompile Include="src\level\gameLevel.cpp" />
+    <ClCompile Include="src\core\gameObject.cpp" />
+    <ClCompile Include="src\resource\resourceManager.cpp" />
+    <ClCompile Include="src\graphics\spriteRenderer.cpp" />
+    <ClCompile Include="src\core\game.cpp" />
+    <ClCompile Include="src\graphics\camera.cpp" />
+    <ClCompile Include="src\graphics\EBO.cpp" />
     <ClCompile Include="src\libs\glad.c" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\shaderClass.cpp" />
+    <ClCompile Include="src\graphics\shaderClass.cpp" />
     <ClCompile Include="src\libs\stb.cpp" />
-    <ClCompile Include="src\texture.cpp" />
-    <ClCompile Include="src\VAO.cpp" />
-    <ClCompile Include="src\VBO.cpp" />
+    <ClCompile Include="src\graphics\texture.cpp" />
+    <ClCompile Include="src\graphics\VAO.cpp" />
+    <ClCompile Include="src\graphics\VBO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\default.frag" />
     <None Include="resources\shaders\default.vert" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\ballObject.h" />
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\EBO.h" />
     <ClInclude Include="include\game.h" />
@@ -173,11 +175,14 @@
     <ClInclude Include="include\vertex.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\JoeyDeVries LearnOpenGL master resources-textures\paddle.png" />
+    <Image Include="resources\textures\awesomeface.png" />
     <Image Include="resources\textures\background.jpg" />
     <Image Include="resources\textures\block.png" />
     <Image Include="resources\textures\block_solid.png" />
     <Image Include="resources\textures\chad.png" />
     <Image Include="resources\textures\minato.png" />
+    <Image Include="resources\textures\paddle.png" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="resources\levels\level1.txt" />

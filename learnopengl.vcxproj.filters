@@ -27,40 +27,43 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\shaderClass.cpp">
+    <ClCompile Include="src\graphics\shaderClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\VBO.cpp">
+    <ClCompile Include="src\graphics\VBO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\EBO.cpp">
+    <ClCompile Include="src\graphics\EBO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\VAO.cpp">
+    <ClCompile Include="src\graphics\VAO.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\libs\stb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\texture.cpp">
+    <ClCompile Include="src\graphics\texture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\camera.cpp">
+    <ClCompile Include="src\graphics\camera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\game.cpp">
+    <ClCompile Include="src\core\game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\spriteRenderer.cpp">
+    <ClCompile Include="src\graphics\spriteRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\resourceManager.cpp">
+    <ClCompile Include="src\resource\resourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameObject.cpp">
+    <ClCompile Include="src\core\gameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\gameLevel.cpp">
+    <ClCompile Include="src\level\gameLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\ballObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -115,6 +118,9 @@
     <ClInclude Include="include\gameLevel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\ballObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\minato.png">
@@ -130,6 +136,15 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="resources\textures\block_solid.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\JoeyDeVries LearnOpenGL master resources-textures\paddle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\paddle.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\awesomeface.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
