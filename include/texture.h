@@ -24,8 +24,6 @@ public:
 	Texture();
 
 	void Generate(unsigned int width, unsigned int height, unsigned char* data);
-
-	void texUniform(Shader& shader, const char* uniform, GLuint unit);
 	void Bind();
 	void Unbind();
 	void Delete();
