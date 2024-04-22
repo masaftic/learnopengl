@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "gameLevel.h"
+#include <ballObject.h>
 
 
 enum GameState
@@ -20,6 +21,10 @@ const glm::vec2 INITIAL_BALL_VELOCITY(100.0f, -350.0f);
 // Radius of the ball object
 const float BALL_RADIUS = 12.5f;
 
+static bool CheckCollision(BallObject& one, GameObject& two);
+static bool CheckCollision(GameObject& one, GameObject& two);
+
+
 
 class Game
 {
@@ -37,5 +42,7 @@ public:
 	void ProcessInput(float dt);
 	void Update(float dt);
 	void Render();
+
+	void DoCollisions();
 };
 

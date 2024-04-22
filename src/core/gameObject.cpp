@@ -1,4 +1,5 @@
 #include "gameObject.h"
+#include <ballObject.h>
 
 GameObject::GameObject() : 
     Position(0.0f, 0.0f), 
@@ -24,8 +25,12 @@ GameObject::GameObject(glm::vec2 pos, glm::vec2 size, Texture sprite, glm::vec3 
 {
 }
 
-
 void GameObject::Draw(SpriteRenderer& renderer)
 {
-    renderer.DrawSprite(this->Sprite, this->Position, this->Size, this->Rotation, this->Color);
+    if (!this->Destroyed)
+        renderer.DrawSprite(this->Sprite, this->Position, this->Size, this->Rotation, this->Color);
 }
+
+
+
+

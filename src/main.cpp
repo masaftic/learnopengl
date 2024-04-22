@@ -3,8 +3,6 @@
 #include<GLFW/glfw3.h>
 
 #include "game.h"
-#include <resourceManager.h>
-
 
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
