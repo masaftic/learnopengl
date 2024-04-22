@@ -137,6 +137,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\gameLevel.cpp" />
+    <ClCompile Include="src\gameObject.cpp" />
     <ClCompile Include="src\resourceManager.cpp" />
     <ClCompile Include="src\spriteRenderer.cpp" />
     <ClCompile Include="src\game.cpp" />
@@ -158,6 +160,8 @@
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\EBO.h" />
     <ClInclude Include="include\game.h" />
+    <ClInclude Include="include\gameLevel.h" />
+    <ClInclude Include="include\gameObject.h" />
     <ClInclude Include="include\glmlibs.h" />
     <ClInclude Include="include\mesh.h" />
     <ClInclude Include="include\resourceManager.h" />
@@ -169,8 +173,17 @@
     <ClInclude Include="include\vertex.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\textures\background.jpg" />
+    <Image Include="resources\textures\block.png" />
+    <Image Include="resources\textures\block_solid.png" />
     <Image Include="resources\textures\chad.png" />
     <Image Include="resources\textures\minato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\levels\level1.txt" />
+    <Text Include="resources\levels\level2.txt" />
+    <Text Include="resources\levels\level3.txt" />
+    <Text Include="resources\levels\level4.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

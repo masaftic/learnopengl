@@ -57,6 +57,12 @@
     <ClCompile Include="src\resourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\gameObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gameLevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\default.vert">
@@ -103,6 +109,12 @@
     <ClInclude Include="include\resourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\gameObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\gameLevel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="resources\textures\minato.png">
@@ -111,5 +123,20 @@
     <Image Include="resources\textures\chad.png">
       <Filter>Resource Files\textures</Filter>
     </Image>
+    <Image Include="resources\textures\background.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\block.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\textures\block_solid.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="resources\levels\level1.txt" />
+    <Text Include="resources\levels\level2.txt" />
+    <Text Include="resources\levels\level3.txt" />
+    <Text Include="resources\levels\level4.txt" />
   </ItemGroup>
 </Project>

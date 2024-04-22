@@ -1,5 +1,8 @@
 #pragma once
 
+#include <vector>
+#include "gameLevel.h"
+
 
 enum GameState
 {
@@ -14,6 +17,8 @@ public:
 	GameState State;
 	bool Keys[1024];
 	unsigned int Width, Height;
+	std::vector<GameLevel> Levels;
+	unsigned int LevelNumber = 0;
 
 	Game(unsigned int width, unsigned int height);
 	~Game();
